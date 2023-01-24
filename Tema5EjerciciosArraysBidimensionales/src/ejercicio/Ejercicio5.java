@@ -1,5 +1,7 @@
 package ejercicio;
 
+import java.util.Arrays;
+
 public class Ejercicio5 {
 
 	public static void main(String[] args) {
@@ -7,19 +9,33 @@ public class Ejercicio5 {
 		// creo el array uno mas largo para poner sumatorios de ejex y y eje x hacer
 		// condicion dentro de bucles para ultimas posiciones y otra para ultima
 		// posicion
-		int tabla[][] = new int[4][7];
+		int tabla[][] = new int[5][6];
+
+		int sumaParcialFila = 0;
+
+		int sumaParcialColumna = 0;
 
 		for (int i = 0; i < tabla.length; i++) {
-			for (int j = 0; j < tabla.length; j++) {
-				// (Math.random()*(1000-100)+100); para numero entre 999 y 100
-				// 1000-100 = maximo (1000 seria 999 porque devuelve 1 menos)
-				// +100 seria el minimo
-				// lo uso para dar valor al elemento en posicion i eje y j eje x
-				tabla[i][j] = (int) (Math.random() * (1000 - 100) + 100);
-			}
 
+			for (int j = 0; j < tabla[0].length; j++) {
+
+				tabla[i][j] = (int) (Math.random() * (1000 - 100) + 100);
+				// mientras j no llegue a ultima celda añado valor de j a sumaParcialFila
+				if (j < tabla[0].length - 1) {
+					sumaParcialFila += tabla[i][j];
+
+				} else {
+					tabla[i][j] = sumaParcialFila;
+				}
+			}
+			// reinicio valor de sumaParcialFila a 0 al final de bucle anidado
+			sumaParcialFila = 0;
 		}
 
+		// para ver arrays
+		for (int e = 0; e < tabla.length; e++) {
+			System.out.println(Arrays.toString(tabla[e]));
+		}
 	}
 
 }

@@ -15,17 +15,18 @@ public class Ejercicio5 {
 
 		int sumaParcialColumna = 0;
 
-		for (int i = 0; i < tabla.length; i++) {
+		for (int fila = 0; fila < tabla.length-1; fila++) {
 
-			for (int j = 0; j < tabla[0].length; j++) {
+			for (int columna = 0; columna < tabla[0].length; columna++) {
 
-				tabla[i][j] = (int) (Math.random() * (1000 - 100) + 100);
-				// mientras j no llegue a ultima celda añado valor de j a sumaParcialFila
-				if (j < tabla[0].length - 1) {
-					sumaParcialFila += tabla[i][j];
+				tabla[fila][columna] = (int) (Math.random() * (1000 - 100) + 100);
+				// mientras columna no llegue a ultima celda añado valor de columna a
+				// sumaParcialFila
+				if (columna < tabla[0].length - 1) {
+					sumaParcialFila += tabla[fila][columna];
 
 				} else {
-					tabla[i][j] = sumaParcialFila;
+					tabla[fila][columna] = sumaParcialFila;
 				}
 			}
 			// reinicio valor de sumaParcialFila a 0 al final de bucle anidado
@@ -33,9 +34,24 @@ public class Ejercicio5 {
 		}
 
 		// para ver arrays
-		for (int e = 0; e < tabla.length; e++) {
-			System.out.println(Arrays.toString(tabla[e]));
+		for (int fila = 0; fila < tabla.length; fila++) {
+			System.out.println(Arrays.toString(tabla[fila]));
 		}
+
+		
+		//recorrer todas las columnas de la fila dada
+		for (int columna = 0; columna < ; columna++) {
+
+			for (int fila=i, fila=i; columna < fila; columna++) {
+
+				if (fila ==tabla.length-1) {
+					tabla[fila][columna]=sumaParcialColumna;
+				}
+				sumaParcialColumna+=tabla[fila][columna];
+				
+			}
+		}
+
 	}
 
 }

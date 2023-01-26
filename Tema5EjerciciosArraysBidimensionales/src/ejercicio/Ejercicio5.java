@@ -18,6 +18,8 @@ public class Ejercicio5 {
 		int sumaColumnas = 0;
 		
 		int sumaColumnasTotal = 0;
+		
+		int total=0;
 
 		for (int fila = 0; fila < tabla.length - 1; fila++) {
 
@@ -26,6 +28,7 @@ public class Ejercicio5 {
 				tabla[fila][columna] = (int) (Math.random() * (1000 - 100) + 100);
 				// mientras columna no llegue a ultima celda añado valor de columna a
 				// sumaParcialFila
+				
 				if (columna < tabla[0].length - 1) {
 					sumaFilas += tabla[fila][columna];
 
@@ -33,8 +36,10 @@ public class Ejercicio5 {
 					tabla[fila][columna] = sumaFilas;
 				}
 				
-				sumaFilasTotal+=sumaFilas;
+			//	sumaFilasTotal+=sumaFilas;
 			}
+			
+			total+=sumaFilas;
 			// reinicio valor de sumaParcialFila a 0 al final de bucle anidado
 			sumaFilas = 0;
 		}
@@ -51,12 +56,13 @@ public class Ejercicio5 {
 				
 				if (fila == tabla.length - 1) {
 					tabla[fila][columna] = sumaColumnasTotal;
+					total+=tabla[fila][columna];
 				}
 				
 				sumaColumnasTotal += tabla[fila][columna];
 				
 				if ((fila== tabla.length-1) && (columna==tabla[0].length-1)) {
-					tabla[fila][columna] = sumaColumnasTotal+sumaFilasTotal;
+					tabla[fila][columna] = total;
 				}
 			}
 		

@@ -13,33 +13,28 @@ public class Ejercicio5 {
 
 		int sumaFilas = 0;
 
-		int sumaFilasTotal = 0;//para usar sumaParcialFila en siguentes bucles
-		
 		int sumaColumnas = 0;
-		
-		int sumaColumnasTotal = 0;
-		
-		int total=0;
+
+		int total = 0;
 
 		for (int fila = 0; fila < tabla.length - 1; fila++) {
 
 			for (int columna = 0; columna < tabla[0].length; columna++) {
 
-				tabla[fila][columna] = (int) (Math.random() * (1000 - 100) + 100);
-				// mientras columna no llegue a ultima celda añado valor de columna a
-				// sumaParcialFila
-				
 				if (columna < tabla[0].length - 1) {
+					tabla[fila][columna] = (int) (Math.random() * (1000 - 100) + 100);
+					// mientras columna no llegue a ultima celda añado valor de columna a
+					// sumaParcialFila
 					sumaFilas += tabla[fila][columna];
 
 				} else {
 					tabla[fila][columna] = sumaFilas;
 				}
-				
-			//	sumaFilasTotal+=sumaFilas;
+
+				// sumaFilasTotal+=sumaFilas;
 			}
-			
-			total+=sumaFilas;
+
+			total += sumaFilas;
 			// reinicio valor de sumaParcialFila a 0 al final de bucle anidado
 			sumaFilas = 0;
 		}
@@ -53,23 +48,28 @@ public class Ejercicio5 {
 		for (int columna = 0; columna < tabla[0].length; columna++) {
 
 			for (int fila = 0; fila < tabla.length; fila++) {
-				
+
+				sumaColumnas += tabla[fila][columna];
+
 				if (fila == tabla.length - 1) {
-					tabla[fila][columna] = sumaColumnasTotal;
-					total+=tabla[fila][columna];
+					
+					tabla[fila][columna] = sumaColumnas;
+				
+					
 				}
-				
-				sumaColumnasTotal += tabla[fila][columna];
-				
-				if ((fila== tabla.length-1) && (columna==tabla[0].length-1)) {
+
+				if ((fila == tabla.length - 1) && (columna == tabla[0].length - 1)) {
 					tabla[fila][columna] = total;
 				}
+
 			}
-		
-			sumaColumnasTotal=0;
+
+			total += sumaColumnas;
+			//
+			sumaColumnas = 0;
 
 		}
-		
+
 		System.out.println();
 		for (int fila = 0; fila < tabla.length; fila++) {
 			System.out.println(Arrays.toString(tabla[fila]));

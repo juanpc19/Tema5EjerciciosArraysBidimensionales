@@ -1,6 +1,7 @@
 package ejercicio;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Ejercicio8 {
 
@@ -10,8 +11,11 @@ public class Ejercicio8 {
 
 		boolean simetrica = false;
 
-		// genera matriz
-		for (int fila = 0; fila < matriz.length; fila++) {
+		
+		Scanner dogma=new Scanner (System.in);
+		
+		// genera matriz aleatoria
+		/*for (int fila = 0; fila < matriz.length; fila++) {
 
 			for (int columna = 0; columna < matriz[fila].length; columna++) {
 
@@ -21,6 +25,18 @@ public class Ejercicio8 {
 
 		}
 
+		*/
+		//meter a mano una matriz simetrica para comprobar funcionamiento
+		for (int fila = 0; fila < matriz.length; fila++) {
+
+			for (int columna = 0; columna < matriz[fila].length; columna++) {
+				System.out.println("introduzca numero");
+				matriz[fila][columna] = dogma.nextInt();
+
+			}
+			System.out.println("siguiente linea");
+		}
+		
 		// print amatriz
 		for (int fila = 0; fila < matriz.length; fila++) {
 
@@ -38,6 +54,8 @@ public class Ejercicio8 {
 					// sino permanece false
 				} else {
 					simetrica = false;
+					break;
+
 				}
 
 			}
